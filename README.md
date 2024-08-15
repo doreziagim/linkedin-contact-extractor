@@ -17,25 +17,13 @@ Before running the script, ensure you have the following Python libraries instal
 ```bash
 pip install requests pandas unidecode
 
+import requests 
+from urllib.parse import quote,unquote
+import urllib.parse
+import re
+import unidecode
+import pandas as pd
 
-# LinkedIn Contact Extractor
-
-## Overview
-
-The LinkedIn Contact Extractor is a Python script designed to automate the extraction and cleaning of contact information from a LinkedIn profile. This tool uses the LinkedIn API to fetch details about a user's connections and presents the data in a clean and structured format. 
-
-## Features
-
-- **Text Normalization**: Cleans and normalizes text data, including removing emojis and other unicode icons, handling German umlauts, and removing diacritics.
-- **Employee Information Extraction**: Extracts key information about a specific LinkedIn user, such as their name, position, location, profile link, and connection degree.
-- **Contact Information Retrieval**: Iteratively gathers information about a user's connections, compiling it into a structured dataframe.
-
-## Requirements
-
-Before running the script, ensure you have the following Python libraries installed:
-
-```bash
-pip install requests pandas unidecode
 ```
 
 ## How to Use
@@ -43,7 +31,7 @@ pip install requests pandas unidecode
 1. **Clone the Repository**:
    Clone this repository to your local machine using:
    ```bash
-   git clone https://github.com/yourusername/linkedin-contact-extractor.git
+   git clone https://github.com/doreziagim/linkedin-contact-extractor.git
    ```
 
 2. **Set Up the Environment**:
@@ -70,22 +58,7 @@ pip install requests pandas unidecode
    ```
 
 6. **Output**:
-   - The script will return a pandas dataframe with the target user and their connections' information, including `userID`, `userCode`, `Nombre`, `Puesto`, `Grado`, `Ubicacion`, and `Link`.
-
-## Example Usage
-
-```python
-li_at = "AQEDASjwWc8F4SgDAAABkQ4NPiIAAAGRMhnCIk0AwZr2UI-AZCl1aFeIhHWsMbHQ5JBCO87PbdKwK5-lyGzUJD6ZLOIwyPtr3M2H3Lm9J9Xdq8RGovd_bOoPSKZqqARAvTVx547MHiOjyGmDJ7EV_Hav"
-JSESSIONID = "ajax:6176132621624475853"
-user = "nathalie-heijkoop"
-
-contacts_df = contacts(user, li_at, JSESSIONID)
-print(contacts_df)
-```
-
-## Contributing
-
-If you wish to contribute to this project, please create a fork, make your changes, and submit a pull request. All contributions are welcome!
+   - The script will return a pandas dataframe with the target user and their connections' information, including `userID`, `userCode`, `Name`, `JobPosition`, `ConnectionDegree`, `Location`, and `UserProfileLink`.
 
 ## License
 
